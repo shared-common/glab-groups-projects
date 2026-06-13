@@ -10,12 +10,10 @@ Thin GitHub Actions wrapper for explicit single-project GitLab mirrors.
 - Mirrors only the explicitly configured source repositories into their
   configured target groups without deriving target path segments from the
   source URL
-- Syncs the source default branch to `gitlab/mcr/main`
-- Bootstraps target-only `mcr/main`, `mcr/feature/init`, `mcr/staging`, and
-  `mcr/release` when they do not already exist
-- Reconciles managed branch protection after bootstrap so only the
-  config-selected target branches remain protected; the checked-in project
-  config currently protects `gitlab/mcr/main`
+- Syncs the source default branch to the managed target branch named by
+  `GIT_BRANCH_GLAB_FORKS`
+- Reconciles only the explicitly configured target branch protections after
+  push; the runtime does not bootstrap extra target-only `mcr/*` branches
 - Runs deterministic mirror batch shards with five jobs max in parallel
 - Schedules at minute 35 of hours 0, 6, 12, and 18 UTC
 - Publishes discovery, plan, report, CSV, JSON, and Parquet artifacts for each run
