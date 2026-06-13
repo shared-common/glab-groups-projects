@@ -12,6 +12,8 @@ Thin GitHub Actions wrapper for explicit single-project GitLab mirrors.
   source URL
 - Syncs the source default branch to the managed target branch named by
   `GIT_BRANCH_GLAB_FORKS`
+- Supports project-level `mirror_pristine_tar: true` for explicit projects that
+  should also mirror and protect `pristine-tar`
 - Reconciles only the explicitly configured target branch protections after
   push; the runtime does not bootstrap extra target-only `mcr/*` branches
 - Runs deterministic mirror batch shards with five jobs max in parallel
